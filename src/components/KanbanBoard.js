@@ -3,14 +3,30 @@ import React from "react";
 import TicketColumn from "./TicketColumn";
 import "./KanbanBoard.css";
 
-const STATUSES = ["Backlog", "Todo", "In progress", "Done", "Cancelled"];
+const STATUSES = {
+  Backlog: {
+    icon: "icons/Backlog.svg",
+  },
+  Todo: {
+    icon: "icons/To-do.svg",
+  },
+  "In progress": {
+    icon: "icons/in-progress.svg",
+  },
+  Done: {
+    icon: "icons/Done.svg",
+  },
+  Cancelled: {
+    icon: "icons/Cancelled.svg",
+  },
+};
 
 const PRIORITY = {
-  0: "No Priority",
-  4: "Urgent",
-  3: "High",
-  2: "Medium",
-  1: "Low",
+  "No Priority": 0,
+  Urgent: 4,
+  High: 3,
+  Medium: 2,
+  Low: 1,
 };
 
 const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
@@ -21,20 +37,21 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
   return (
     <div className="kanban-board">
       {groupingType === "status"
-        ? STATUSES.map((group) => (
+        ? Object.entries(STATUSES).map(([status, data]) => (
             <TicketColumn
-              key={group}
-              title={group}
-              tickets={groupedTickets[group] || []}
+              key={status}
+              title={status}
+              icon={data.icon}
+              tickets={groupedTickets[status] || []}
             />
           ))
         : null}
       {groupingType === "priority"
-        ? Object.entries(PRIORITY).map(([index, priority]) => (
+        ? Object.entries(PRIORITY).map(([priority, index]) => (
             <TicketColumn
               key={priority}
               title={priority}
-              tickets={groupedTickets[+index] || []}
+              tickets={groupedTickets[index] || []}
             />
           ))
         : null}
