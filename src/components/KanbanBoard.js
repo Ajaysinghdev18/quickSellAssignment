@@ -5,28 +5,49 @@ import "./KanbanBoard.css";
 
 const STATUSES = {
   Backlog: {
+    key: 0,
     icon: "icons/Backlog.svg",
   },
   Todo: {
+    key: 1,
     icon: "icons/To-do.svg",
   },
   "In progress": {
+    key: 2,
     icon: "icons/in-progress.svg",
   },
   Done: {
+    key: 3,
     icon: "icons/Done.svg",
   },
   Cancelled: {
+    key: 4,
     icon: "icons/Cancelled.svg",
   },
 };
 
 const PRIORITY = {
-  "No Priority": 0,
-  Urgent: 4,
-  High: 3,
-  Medium: 2,
-  Low: 1,
+  "No Priority": {
+    key: 0,
+    icon: "icons/No-priority.svg",
+  },
+  Urgent: {
+    key: 4,
+    icon: "icons/SVG - Urgent Priority colour.svg",
+    noData: "icons/SVG - Urgent Priority grey.svg",
+  },
+  High: {
+    key: 3,
+    icon: "icons/Img - High Priority.svg",
+  },
+  Medium: {
+    key: 2,
+    icon: "icons/Img - Medium Priority.svg",
+  },
+  Low: {
+    key: 1,
+    icon: "icons/Img - Low Priority.svg",
+  },
 };
 
 const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
@@ -41,17 +62,26 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
             <TicketColumn
               key={status}
               title={status}
-              icon={data.icon}
+              icon={
+                (groupedTickets[status] || []).length === 0
+                  ? data.noData || data.icon
+                  : data.icon
+              }
               tickets={groupedTickets[status] || []}
             />
           ))
         : null}
       {groupingType === "priority"
-        ? Object.entries(PRIORITY).map(([priority, index]) => (
+        ? Object.entries(PRIORITY).map(([priority, data]) => (
             <TicketColumn
               key={priority}
               title={priority}
-              tickets={groupedTickets[index] || []}
+              icon={
+                (groupedTickets[data.key] || []).length === 0
+                  ? data.noData || data.icon
+                  : data.icon
+              }
+              tickets={groupedTickets[data.key] || []}
             />
           ))
         : null}
