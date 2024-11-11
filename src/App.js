@@ -35,7 +35,11 @@ const App = () => {
         onGroupingChange={setGroupingType}
         onSortingChange={setSortingType}
       />
-      <KanbanBoard groupedTickets={sortedGroupedTickets} />
+      <KanbanBoard
+        groupedTickets={sortedGroupedTickets}
+        users={users}
+        groupingType={groupingType}
+      />
     </div>
   );
 };
