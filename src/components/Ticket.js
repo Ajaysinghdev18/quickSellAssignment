@@ -5,7 +5,7 @@ import "./Ticket.css";
 const Ticket = ({ ticket }) => {
   return (
     <div className="ticket">
-      <p>Id: {ticket.id}</p>
+      <p>{ticket.id}</p>
       <h3>{ticket.title}</h3>
       <p>Priority: {ticket.priority}</p>
       <p>{ticket.tag}</p>

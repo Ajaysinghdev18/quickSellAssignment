@@ -1,7 +1,7 @@
 // src/utils/utils.js
 export const groupTickets = (tickets, groupingType) => {
     return tickets.reduce((groups, ticket) => {
-        const groupKey = ticket[groupingType] || 'Other';
+        const groupKey = ticket[groupingType];
         if (!groups[groupKey]) {
             groups[groupKey] = [];
         }
