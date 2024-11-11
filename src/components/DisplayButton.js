@@ -15,7 +15,7 @@ const DisplayButton = ({ onGroupingChange, onSortingChange }) => {
     <div className="display-button">
       <select onChange={handleGroupingChange(onGroupingChange)}>
         <option value="status">Group by Status</option>
-        <option value="user">Group by User</option>
+        <option value="userId">Group by User</option>
         <option value="priority">Group by Priority</option>
       </select>
 
