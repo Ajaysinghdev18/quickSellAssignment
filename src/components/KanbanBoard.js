@@ -3,33 +3,44 @@ import React from "react";
 import TicketColumn from "./TicketColumn";
 import "./KanbanBoard.css";
 
-const PRIORITY = {
-  0: "No Priority",
-  1: "Low",
-  2: "Medium",
-  3: "High",
-  4: "Urgent",
-};
+const STATUSES = ["Backlog", "Todo", "In progress", "Done", "Cancelled"];
+
+const PRIORITY = ["No Priority", "Urgent", "High", "Medium", "Low"];
 
 const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
-  const getGroupTitle = (group) => {
-    if (groupingType === "userId") {
-      return users.find((user) => user.id === group)?.name || group;
-    }
-    if (groupingType === "priority") {
-      return PRIORITY[group];
-    }
-    return group;
+  const getUser = (group) => {
+    return users.find((user) => user.id === group);
   };
+
   return (
     <div className="kanban-board">
-      {Object.keys(groupedTickets).map((group) => (
-        <TicketColumn
-          key={group}
-          title={getGroupTitle(group)}
-          tickets={groupedTickets[group]}
-        />
-      ))}
+      {groupingType === "status"
+        ? STATUSES.map((group) => (
+            <TicketColumn
+              key={group}
+              title={group}
+              tickets={groupedTickets[group] || []}
+            />
+          ))
+        : null}
+      {groupingType === "priority"
+        ? PRIORITY.map((priority, index) => (
+            <TicketColumn
+              key={index}
+              title={priority}
+              tickets={groupedTickets[index] || []}
+            />
+          ))
+        : null}
+      {groupingType === "userId"
+        ? Object.keys(groupedTickets).map((group) => (
+            <TicketColumn
+              key={group}
+              title={getUser(group)?.name || group}
+              tickets={groupedTickets[group]}
+            />
+          ))
+        : null}
     </div>
   );
 };
