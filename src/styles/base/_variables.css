@@ -1,8 +1,8 @@
 /* src/styles/base/_variables.css */
 :root {
-  --bg-color: #f7f9fc;
+  --bg-color: #f4f6fa;
   --ticket-bg-color: #ffffff;
-  --ticket-column-bg-color: #f7f9fc;
+  --ticket-column-bg-color: #f4f6fa;
   --primary-color: #007bff;
   --border-color: #ddd;
   --text-color: #333;
