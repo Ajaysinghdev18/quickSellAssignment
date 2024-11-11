@@ -28,6 +28,7 @@
 .ticket .tags {
   display: inline-flex;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
 .ticket .tag {
@@ -38,6 +39,7 @@
   border: 1px solid #cccccc;
   border-radius: 6px;
   height: 31px;
+  white-space: nowrap;
 }
 
 .ticket .tag .color {

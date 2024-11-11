@@ -9,7 +9,7 @@ const Ticket = ({ ticket, showStatusIcon, showPriorityIcon, showUserIcon }) => {
       <div>{ticket.id}</div>
       <div className="title">
         {showStatusIcon && (
-          <img src={STATUSES[ticket.status]?.icon} alt={ticket.title} />
+          <img src={STATUSES[ticket.status]?.icon} alt={ticket.status} />
         )}
         <h3>{ticket.title}</h3>
       </div>
@@ -21,7 +21,7 @@ const Ticket = ({ ticket, showStatusIcon, showPriorityIcon, showUserIcon }) => {
                 Object.values(PRIORITY).find((p) => p.key === ticket.priority)
                   ?.icon
               }
-              alt={ticket.title}
+              alt={ticket.priority}
             />
           </div>
         )}
