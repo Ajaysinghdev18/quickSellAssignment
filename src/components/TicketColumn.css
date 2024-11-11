@@ -31,3 +31,7 @@
   align-items: center;
   gap: 10px;
 }
+
+.ticket-column .actions img {
+  cursor: pointer;
+}

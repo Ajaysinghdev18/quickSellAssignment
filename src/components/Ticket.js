@@ -10,7 +10,10 @@ const Ticket = ({ ticket }) => {
         <h3>{ticket.title}</h3>
       </div>
       <div>
-        <span className="tag">{ticket.tag}</span>
+        <div className="tag">
+          <span className="color" />
+          {ticket.tag}
+        </div>
       </div>
     </div>
   );
