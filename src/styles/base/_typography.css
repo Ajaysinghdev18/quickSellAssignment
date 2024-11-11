@@ -1,5 +1,10 @@
 /* src/styles/base/_typography.css */
 body {
-    font-family: var(--font-family);
-    color: var(--text-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+h2,
+h3 {
+  font-weight: 600;
 }

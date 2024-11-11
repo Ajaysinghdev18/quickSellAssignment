@@ -11,3 +11,9 @@
 .ticket:hover {
   background-color: #e0e0e0;
 }
+
+.ticket .tag {
+  padding: 2px 5px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+}
