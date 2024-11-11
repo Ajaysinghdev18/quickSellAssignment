@@ -22,3 +22,7 @@ export const sortTickets = (groupedTickets, sortingType) => {
     });
     return sortedGroups;
 };
+
+export const getUser = (users, group) => {
+    return users.find((user) => user.id === group);
+};

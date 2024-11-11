@@ -2,13 +2,10 @@
 import React from "react";
 import TicketColumn from "./TicketColumn";
 import { STATUSES, PRIORITY } from "../constants";
+import { getUser } from "../utils/utils";
 import "./KanbanBoard.css";
 
 const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
-  const getUser = (group) => {
-    return users.find((user) => user.id === group);
-  };
-
   return (
     <div className="kanban-board">
       {groupingType === "status"
@@ -18,6 +15,7 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
               showUserIcon={true}
               key={status}
               title={status}
+              users={users}
               icon={
                 (groupedTickets[status] || []).length === 0
                   ? data.noData || data.icon
@@ -34,6 +32,7 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
               showUserIcon={true}
               key={priority}
               title={priority}
+              users={users}
               icon={
                 (groupedTickets[data.key] || []).length === 0
                   ? data.noData || data.icon
@@ -49,7 +48,8 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
               showStatusIcon={true}
               showPriorityIcon={true}
               key={group}
-              title={getUser(group)?.name || group}
+              title={getUser(users, group)?.name || group}
+              users={users}
               tickets={groupedTickets[group]}
             />
           ))

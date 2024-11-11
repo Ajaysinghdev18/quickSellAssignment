@@ -5,6 +5,7 @@ import "./Column.css";
 
 const TicketColumn = ({
   title,
+  users,
   icon,
   tickets,
   showStatusIcon,
@@ -26,6 +27,7 @@ const TicketColumn = ({
         <Ticket
           key={ticket.id}
           ticket={ticket}
+          users={users}
           showStatusIcon={showStatusIcon}
           showPriorityIcon={showPriorityIcon}
           showUserIcon={showUserIcon}
