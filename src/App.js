@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import KanbanBoard from "./components/KanbanBoard";
 import DisplayButton from "./components/DisplayButton";
 import { fetchData } from "./services/apiService";
@@ -8,13 +8,22 @@ import "./App.css";
 
 const App = () => {
   const [tickets, setTickets] = useState([]);
+  const [users, setUsers] = useState([]);
   const [groupingType, setGroupingType] = useState("status");
   const [sortingType, setSortingType] = useState("priority");
 
+  const isDataFetchedRef = useRef(false);
+
   useEffect(() => {
-    fetchData()
-      .then((data) => setTickets(data.tickets))
-      .catch(console.error);
+    if (!isDataFetchedRef.current) {
+      isDataFetchedRef.current = true;
+      fetchData()
+        .then((data) => {
+          setTickets(data.tickets);
+          setUsers(data.users);
+        })
+        .catch(console.error);
+    }
   }, []);
 
   const groupedTickets = groupTickets(tickets, groupingType);
