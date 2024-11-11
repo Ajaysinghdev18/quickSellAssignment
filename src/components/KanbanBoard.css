@@ -1,0 +1,5 @@
+/* src/styles/components/_KanbanBoard.css */
+.kanban-board {
+  background-color: var(--bg-color);
+  padding: 20px;
+}

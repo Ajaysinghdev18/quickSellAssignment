@@ -1,0 +1,16 @@
+/* src/styles/components/_Column.css */
+.column {
+  background-color: var(--ticket-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.column h2 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
