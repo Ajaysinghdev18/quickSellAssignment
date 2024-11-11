@@ -1,54 +1,8 @@
 // src/components/KanbanBoard.js
 import React from "react";
 import TicketColumn from "./TicketColumn";
+import { STATUSES, PRIORITY } from "../constants";
 import "./KanbanBoard.css";
-
-const STATUSES = {
-  Backlog: {
-    key: 0,
-    icon: "icons/Backlog.svg",
-  },
-  Todo: {
-    key: 1,
-    icon: "icons/To-do.svg",
-  },
-  "In progress": {
-    key: 2,
-    icon: "icons/in-progress.svg",
-  },
-  Done: {
-    key: 3,
-    icon: "icons/Done.svg",
-  },
-  Cancelled: {
-    key: 4,
-    icon: "icons/Cancelled.svg",
-  },
-};
-
-const PRIORITY = {
-  "No Priority": {
-    key: 0,
-    icon: "icons/No-priority.svg",
-  },
-  Urgent: {
-    key: 4,
-    icon: "icons/SVG - Urgent Priority colour.svg",
-    noData: "icons/SVG - Urgent Priority grey.svg",
-  },
-  High: {
-    key: 3,
-    icon: "icons/Img - High Priority.svg",
-  },
-  Medium: {
-    key: 2,
-    icon: "icons/Img - Medium Priority.svg",
-  },
-  Low: {
-    key: 1,
-    icon: "icons/Img - Low Priority.svg",
-  },
-};
 
 const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
   const getUser = (group) => {
@@ -60,6 +14,8 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
       {groupingType === "status"
         ? Object.entries(STATUSES).map(([status, data]) => (
             <TicketColumn
+              showPriorityIcon={true}
+              showUserIcon={true}
               key={status}
               title={status}
               icon={
@@ -74,6 +30,8 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
       {groupingType === "priority"
         ? Object.entries(PRIORITY).map(([priority, data]) => (
             <TicketColumn
+              showStatusIcon={true}
+              showUserIcon={true}
               key={priority}
               title={priority}
               icon={
@@ -88,6 +46,8 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
       {groupingType === "userId"
         ? Object.keys(groupedTickets).map((group) => (
             <TicketColumn
+              showStatusIcon={true}
+              showPriorityIcon={true}
               key={group}
               title={getUser(group)?.name || group}
               tickets={groupedTickets[group]}

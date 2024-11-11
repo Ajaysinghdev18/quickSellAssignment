@@ -3,10 +3,17 @@ import Ticket from "./Ticket";
 import "./TicketColumn.css";
 import "./Column.css";
 
-const TicketColumn = ({ title, icon, tickets }) => {
+const TicketColumn = ({
+  title,
+  icon,
+  tickets,
+  showStatusIcon,
+  showPriorityIcon,
+  showUserIcon,
+}) => {
   return (
     <div className="ticket-column">
-      <div className="title">
+      <div className="column-title">
         {icon && <img src={icon} alt={title} />}
         <h2>{title}</h2>
         <span className="ticket-count">{tickets.length}</span>
@@ -16,7 +23,13 @@ const TicketColumn = ({ title, icon, tickets }) => {
         </div>
       </div>
       {tickets.map((ticket) => (
-        <Ticket key={ticket.id} ticket={ticket} />
+        <Ticket
+          key={ticket.id}
+          ticket={ticket}
+          showStatusIcon={showStatusIcon}
+          showPriorityIcon={showPriorityIcon}
+          showUserIcon={showUserIcon}
+        />
       ))}
     </div>
   );

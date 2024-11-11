@@ -10,7 +10,7 @@
   gap: 10px;
 }
 
-.ticket-column .title {
+.ticket-column .column-title {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
