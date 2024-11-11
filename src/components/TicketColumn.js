@@ -6,7 +6,10 @@ import "./Column.css";
 const TicketColumn = ({ title, tickets }) => {
   return (
     <div className="ticket-column">
-      <h2>{title}</h2>
+      <div className="title">
+        <h2>{title}</h2>
+        <span className="ticket-count">{tickets.length}</span>
+      </div>
       {tickets.map((ticket) => (
         <Ticket key={ticket.id} ticket={ticket} />
       ))}
