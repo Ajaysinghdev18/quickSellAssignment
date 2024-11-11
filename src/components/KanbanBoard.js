@@ -5,7 +5,13 @@ import "./KanbanBoard.css";
 
 const STATUSES = ["Backlog", "Todo", "In progress", "Done", "Cancelled"];
 
-const PRIORITY = ["No Priority", "Urgent", "High", "Medium", "Low"];
+const PRIORITY = {
+  0: "No Priority",
+  4: "Urgent",
+  3: "High",
+  2: "Medium",
+  1: "Low",
+};
 
 const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
   const getUser = (group) => {
@@ -24,11 +30,11 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
           ))
         : null}
       {groupingType === "priority"
-        ? PRIORITY.map((priority, index) => (
+        ? Object.entries(PRIORITY).map(([index, priority]) => (
             <TicketColumn
-              key={index}
+              key={priority}
               title={priority}
-              tickets={groupedTickets[index] || []}
+              tickets={groupedTickets[+index] || []}
             />
           ))
         : null}
