@@ -4,8 +4,4 @@
 @import "./base/_typography.css";
 @import "./layout/grid.css";
 @import "./layout/spacing.css";
-@import "../components/KanbanBoard.css";
-@import "../components/Column.css";
-@import "../components/Ticket.css";
 @import "../components/Controls.css";
-@import "../components/TicketColumn.css";

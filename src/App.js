@@ -4,7 +4,7 @@ import KanbanBoard from "./components/KanbanBoard";
 import DisplayButton from "./components/DisplayButton";
 import { fetchData } from "./services/apiService";
 import { groupTickets, sortTickets } from "./utils/utils";
-import "./components/App.css";
+import "./App.css";
 
 const App = () => {
   const [tickets, setTickets] = useState([]);
