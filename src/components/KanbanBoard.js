@@ -50,6 +50,7 @@ const KanbanBoard = ({ groupedTickets, users, groupingType }) => {
               key={group}
               title={getUser(users, group)?.name || group}
               users={users}
+              user={getUser(users, group)}
               tickets={groupedTickets[group]}
             />
           ))

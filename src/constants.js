@@ -44,3 +44,5 @@ export const PRIORITY = {
     icon: "icons/Img - Low Priority.svg",
   },
 };
+
+export const COLORS = ["#557feb", "#2a953c", "#878d04", "#bf7227"];

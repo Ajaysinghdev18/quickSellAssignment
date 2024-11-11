@@ -4,8 +4,6 @@ import { STATUSES, PRIORITY } from "../constants";
 import { getUser } from "../utils/utils";
 import "./Ticket.css";
 
-const COLORS = ["#557feb", "#2a953c", "#878d04", "#bf7227"];
-
 const Ticket = ({
   ticket,
   users,
@@ -13,25 +11,20 @@ const Ticket = ({
   showPriorityIcon,
   showUserIcon,
 }) => {
-  const getInitials = (name) => {
-    return name
-      .split(" ")
-      .map((n) => n)
-      .map((n) => n[0]);
-  };
+  const user = getUser(users, ticket.userId);
 
   return (
     <div className="ticket">
       <div className="id">
         {ticket.id}
-        {showUserIcon && (
+        {showUserIcon && user && (
           <span
             className="user-initials"
             style={{
-              backgroundColor: COLORS[Math.floor(Math.random() * 3) + 1],
+              backgroundColor: user.color,
             }}
           >
-            {getInitials(getUser(users, ticket.userId)?.name)}
+            {user.initials}
           </span>
         )}
       </div>

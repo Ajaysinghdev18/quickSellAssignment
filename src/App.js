@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import KanbanBoard from "./components/KanbanBoard";
 import DisplayButton from "./components/DisplayButton";
 import { fetchData } from "./services/apiService";
-import { groupTickets, sortTickets } from "./utils/utils";
+import { COLORS } from "./constants";
+import { groupTickets, sortTickets, getInitials } from "./utils/utils";
 import "./App.css";
 
 const App = () => {
@@ -20,7 +21,13 @@ const App = () => {
       fetchData()
         .then((data) => {
           setTickets(data.tickets);
-          setUsers(data.users);
+          setUsers(
+            data.users.map((user) => ({
+              ...user,
+              initials: getInitials(user.name),
+              color: COLORS[Math.floor(Math.random() * 3) + 1],
+            }))
+          );
         })
         .catch(console.error);
     }

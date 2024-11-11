@@ -26,3 +26,10 @@ export const sortTickets = (groupedTickets, sortingType) => {
 export const getUser = (users, group) => {
     return users.find((user) => user.id === group);
 };
+
+export const getInitials = (name) => {
+    return name
+        .split(" ")
+        .map((n) => n)
+        .map((n) => n[0]);
+};

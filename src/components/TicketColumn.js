@@ -6,6 +6,7 @@ import "./Column.css";
 const TicketColumn = ({
   title,
   users,
+  user,
   icon,
   tickets,
   showStatusIcon,
@@ -16,6 +17,16 @@ const TicketColumn = ({
     <div className="ticket-column">
       <div className="column-title">
         {icon && <img src={icon} alt={title} />}
+        {user && (
+          <span
+            className="user-initials"
+            style={{
+              backgroundColor: user.color,
+            }}
+          >
+            {user.initials}
+          </span>
+        )}
         <h2>{title}</h2>
         <span className="ticket-count">{tickets.length}</span>
         <div className="actions">
