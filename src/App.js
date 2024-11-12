@@ -4,7 +4,7 @@ import KanbanBoard from "./components/KanbanBoard";
 import DisplayButton from "./components/DisplayButton";
 import { fetchData } from "./services/apiService";
 import { COLORS } from "./constants";
-import { groupTickets, sortTickets, getInitials } from "./utils/utils";
+import { groupTickets, sortTickets, getInitials } from "./utils";
 import "./App.css";
 
 const App = () => {

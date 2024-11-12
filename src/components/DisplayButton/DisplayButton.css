@@ -1,0 +1,13 @@
+/* src/components/DisplayButton/DisplayButton.css */
+.display-button {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  height: 31px;
+}
+
+.display-button select {
+  padding: 5px;
+  font-size: 1em;
+}

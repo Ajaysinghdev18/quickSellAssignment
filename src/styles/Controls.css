@@ -1,0 +1,15 @@
+/* src/styles/Controls.css */
+.add-ticket-btn {
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+.add-ticket-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,9 @@
+/* src/components/KanbanBoard/KanbanBoard.css */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--bg-color);
+  overflow: auto;
+}
