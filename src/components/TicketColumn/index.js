@@ -30,8 +30,8 @@ const TicketColumn = ({
         <h2>{title}</h2>
         <span className="ticket-count">{tickets.length}</span>
         <div className="actions">
-          <img src="/icons/add.svg" alt="add" />
-          <img src="/icons/3 dot menu.svg" alt="menu" />
+          <img src="/img/add.svg" alt="add" />
+          <img src="/img/3 dot menu.svg" alt="menu" />
         </div>
       </div>
       <div className="column-tickets">

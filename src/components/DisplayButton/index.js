@@ -1,5 +1,5 @@
 // src/components/DisplayButton/index.js
-import React from "react";
+import React, { useState } from "react";
 import "./DisplayButton.css";
 
 // Event Handlers (Logic)
@@ -12,19 +12,44 @@ const handleSortingChange = (onSortingChange) => (e) => {
 };
 
 const DisplayButton = ({ onGroupingChange, onSortingChange }) => {
-  return (
-    <div className="display-button">
-      <select onChange={handleGroupingChange(onGroupingChange)}>
-        <option value="status">Group by Status</option>
-        <option value="userId">Group by User</option>
-        <option value="priority">Group by Priority</option>
-      </select>
+  const [showFilters, setShowFilters] = useState(false);
 
-      <select onChange={handleSortingChange(onSortingChange)}>
-        <option value="priority">Sort by Priority</option>
-        <option value="title">Sort by Title</option>
-      </select>
-    </div>
+  return (
+    <>
+      <div className="display-section">
+        <div className="display-button" onClick={() => setShowFilters(true)}>
+          <img width={16} src="/img/Display.svg" alt="display" />
+          <span>Display</span>
+          <img width={20} src="/img/down.svg" alt="down" />
+        </div>
+      </div>
+      {showFilters ? (
+        <>
+          <div
+            className="display-backdrop"
+            onClick={() => setShowFilters(false)}
+          />
+          <div className="display-filters">
+            <div className="filter">
+              <div className="label">Grouping</div>
+              <select onChange={handleGroupingChange(onGroupingChange)}>
+                <option value="status">Status</option>
+                <option value="userId">User</option>
+                <option value="priority">Priority</option>
+              </select>
+            </div>
+
+            <div className="filter">
+              <div className="label">Ordering</div>
+              <select onChange={handleSortingChange(onSortingChange)}>
+                <option value="priority">Priority</option>
+                <option value="title">Title</option>
+              </select>
+            </div>
+          </div>
+        </>
+      ) : null}
+    </>
   );
 };
 

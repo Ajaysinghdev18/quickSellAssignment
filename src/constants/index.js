@@ -2,47 +2,47 @@
 export const STATUSES = {
   Backlog: {
     key: 0,
-    icon: "icons/Backlog.svg",
+    icon: "img/Backlog.svg",
   },
   Todo: {
     key: 1,
-    icon: "icons/To-do.svg",
+    icon: "img/To-do.svg",
   },
   "In progress": {
     key: 2,
-    icon: "icons/in-progress.svg",
+    icon: "img/in-progress.svg",
   },
   Done: {
     key: 3,
-    icon: "icons/Done.svg",
+    icon: "img/Done.svg",
   },
   Cancelled: {
     key: 4,
-    icon: "icons/Cancelled.svg",
+    icon: "img/Cancelled.svg",
   },
 };
 
 export const PRIORITY = {
   "No Priority": {
     key: 0,
-    icon: "icons/No-priority.svg",
+    icon: "img/No-priority.svg",
   },
   Urgent: {
     key: 4,
-    icon: "icons/SVG - Urgent Priority colour.svg",
-    noData: "icons/SVG - Urgent Priority grey.svg",
+    icon: "img/SVG - Urgent Priority colour.svg",
+    noData: "img/SVG - Urgent Priority grey.svg",
   },
   High: {
     key: 3,
-    icon: "icons/Img - High Priority.svg",
+    icon: "img/Img - High Priority.svg",
   },
   Medium: {
     key: 2,
-    icon: "icons/Img - Medium Priority.svg",
+    icon: "img/Img - Medium Priority.svg",
   },
   Low: {
     key: 1,
-    icon: "icons/Img - Low Priority.svg",
+    icon: "img/Img - Low Priority.svg",
   },
 };
 

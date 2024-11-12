@@ -1,13 +1,68 @@
 /* src/components/DisplayButton/DisplayButton.css */
-.display-button {
+.display-section {
   display: flex;
-  justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
-  height: 31px;
+  height: 51px;
+  padding: 10px 30px;
 }
 
-.display-button select {
+.display-section select {
   padding: 5px;
-  font-size: 1em;
+  font-size: 0.9em;
+}
+
+.display-section .display-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.display-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.display-filters {
+  position: absolute;
+  top: 47px;
+  left: 30px;
+  width: 280px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f8fafb;
+  padding: 15px;
+  z-index: 2;
+}
+
+.display-filters .filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.display-filters .filter:last-of-type {
+  margin-bottom: 0;
+}
+
+.display-filters .filter .label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #5c5c5c;
+}
+
+.display-filters .filter select {
+  padding: 4px;
+  font-size: 0.9rem;
 }
