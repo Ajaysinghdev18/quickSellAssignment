@@ -1,9 +1,12 @@
 /* src/styles/layout/_grid.css */
 .kanban-board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    padding: 20px;
-    background-color: var(--bg-color);
-    min-height: 100vh;
+  height: calc(100vh - 52px);
+}
+
+.ticket-column {
+  height: calc(100vh - 92px);
+}
+
+.ticket-column .column-tickets {
+  height: calc(100vh - 130px);
 }

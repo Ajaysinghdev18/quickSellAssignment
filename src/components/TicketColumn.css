@@ -2,10 +2,10 @@
   background-color: var(--ticket-column-bg-color);
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.ticket-column div {
+.column-title,
+.ticket div {
   margin-bottom: 5px;
   gap: 10px;
 }
@@ -48,4 +48,8 @@
 
 .ticket-column .actions img {
   cursor: pointer;
+}
+
+.ticket-column .column-tickets {
+  overflow: auto;
 }

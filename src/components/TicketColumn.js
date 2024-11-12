@@ -34,16 +34,18 @@ const TicketColumn = ({
           <img src="/icons/3 dot menu.svg" alt="menu" />
         </div>
       </div>
-      {tickets.map((ticket) => (
-        <Ticket
-          key={ticket.id}
-          ticket={ticket}
-          users={users}
-          showStatusIcon={showStatusIcon}
-          showPriorityIcon={showPriorityIcon}
-          showUserIcon={showUserIcon}
-        />
-      ))}
+      <div className="column-tickets">
+        {tickets.map((ticket) => (
+          <Ticket
+            key={ticket.id}
+            ticket={ticket}
+            users={users}
+            showStatusIcon={showStatusIcon}
+            showPriorityIcon={showPriorityIcon}
+            showUserIcon={showUserIcon}
+          />
+        ))}
+      </div>
     </div>
   );
 };
